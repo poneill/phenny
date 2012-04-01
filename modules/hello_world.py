@@ -66,7 +66,7 @@ advisor_triggers = [r"understand",
 advisor.rule = r"|".join([r".*" + trigger + r".*" for trigger in advisor_triggers])
 advisor.priority = 'medium'
 
-with open("/home/poneill/.phenny/idioms.txt") as f:
+with open("modules/idioms.txt") as f:
     lines = f.readlines()
     english_idioms = [line.strip() for (i,line) in enumerate(lines) if i % 4 == 0]
     spanish_idioms = [line.strip() for (i,line) in enumerate(lines) if i % 4 == 1]
