@@ -74,13 +74,14 @@ with open("modules/idioms.txt") as f:
 
 def idiom(phenny, input):
     words = input.split(" ")
-    hits = [idiom for idiom in english_idioms for word in words if word in idiom]
+    hits = [idiom for idiom in english_idioms
+            for word in words if word in idiom.split(" ")]
     if hits:
         english_idiom = random.choice(hits)
         index = english_idioms.index(english_idiom)
         spanish_idiom = spanish_idioms[index]
         literal_idiom = literal_idioms[index]
-        triggers = [word for word in words if word in english_idiom]
+        triggers = [word for word in words if word in english_idiom.split(" ")]
         phenny.say("it's funny that you mention: %s." % random.choice(triggers))
         phenny.say("In %s, we say:" % random.choice(["Spain","Spanish"]))
         phenny.say(spanish_idiom)
